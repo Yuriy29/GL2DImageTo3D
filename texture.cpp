@@ -1,6 +1,6 @@
 #include "texture.h"
-#include <GL/glew.h>
-#include <GL/wglew.h>
+#include "GL/glew.h"
+#include "GL/wglew.h"
 #include <stdio.h>
 #include "FreeImage.h"
 

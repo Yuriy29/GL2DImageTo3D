@@ -1,10 +1,11 @@
 ﻿#pragma comment (lib,"opengl32.lib")
-#include <GL/glew.h>
-#include <GL/wglew.h>
+#include "GL/glew.h"
+#include "GL/wglew.h"
 #include <stdio.h>
 #include <fstream>
-#include <GL/glm.hpp>
-#include <GL/ext.hpp>
+#include "glm/glm.hpp"
+#include "glm/gtx/transform.hpp"
+#include "glm/gtc/type_ptr.hpp"
 #include "stdafx.h"
 #include "shaders.h"
 #include "FreeImage.h"
@@ -520,7 +521,7 @@ void Render()
 	glm::mat4	mView;
 	glm::mat4	mProjection;
 
-	mWorld = glm::translate(0.0f, 0.0f, 0.0f);
+	mWorld =  glm::translate(0.0f, 0.0f, 0.0f);
 	mWorld = mWorld * glm::rotate(mOrbitX, 0.0f, 1.0f, 0.0f); 
 	mWorld = mWorld * glm::rotate(mOrbitY, 1.0f, 0.0f, 0.0f);
 	mView=		glm::lookAt(Eye,glm::vec3(0,0,1),glm::vec3(0.0f,1.0f,0.0f));

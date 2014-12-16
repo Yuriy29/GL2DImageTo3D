@@ -1,8 +1,8 @@
-#include <GL/glew.h>
-#include <GL/wglew.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "GL/glew.h"
+#include "GL/wglew.h"
 #include "shaders.h"
 
 CShader::CShader()
