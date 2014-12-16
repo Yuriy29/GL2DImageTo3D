@@ -28,6 +28,14 @@ bool mStartMes = false;
 FLOAT mOrbitX;
 FLOAT mOrbitY;
 bool mMouseMove;
+FIBITMAP *fibmp_img;
+HBITMAP hBitmap;
+TCHAR * mImagePath;
+COLORREF * lpPixels;
+BITMAPINFO bmpInfo;
+COpenFileDialog mFileDialog; 
+CTexture Tex;
+bool flag = false;
 
 
 HRESULT InitWindow( HINSTANCE hInstance, int nCmdShow );
@@ -40,14 +48,7 @@ void LoadSelectedImage();
 void Render();
 void GenerateHMap();
 LRESULT CALLBACK    WndProc( HWND, UINT, WPARAM, LPARAM );
-FIBITMAP *fibmp_img;
-HBITMAP hBitmap;
-TCHAR * mImagePath;
-COLORREF * lpPixels;
-BITMAPINFO bmpInfo;
-COpenFileDialog mFileDialog; 
-CTexture Tex;
-bool flag = false;
+
 
 
 
@@ -76,19 +77,15 @@ int WINAPI wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdL
     MSG msg = {0};
     while( WM_QUIT != msg.message )
     {
-		/*if(WM_COMMAND== msg.message  ){ 
-			InitGeometry();
-			PeekMessage( &msg, NULL, 0, 0, PM_REMOVE );
-		}
-        else*/  if( PeekMessage( &msg, NULL, 0, 0, PM_REMOVE ) )
-        {
-            TranslateMessage( &msg );
-            DispatchMessage( &msg );
-        }
-        else
-        {
-            Render();
-        }
+		 if( PeekMessage( &msg, NULL, 0, 0, PM_REMOVE ) )
+			{
+				TranslateMessage( &msg );
+				DispatchMessage( &msg );
+			}
+		  else
+			{
+				Render();
+			}
     }
 
     CleanupContext();
@@ -132,12 +129,12 @@ HRESULT InitWindow( HINSTANCE hInstance, int nCmdShow )
     wcex.cbClsExtra = 0;
     wcex.cbWndExtra = 0;
     wcex.hInstance = hInstance;
-    wcex.hIcon = 0; // LoadIcon( hInstance, ( LPCTSTR )IDI_TUTORIAL1 );
+    wcex.hIcon = 0; 
     wcex.hCursor = LoadCursor( NULL, IDC_ARROW );
     wcex.hbrBackground = ( HBRUSH )( COLOR_WINDOW + 1 );
     wcex.lpszMenuName = NULL;
     wcex.lpszClassName = L"GLProject";
-    wcex.hIconSm = 0; // LoadIcon( wcex.hInstance, ( LPCTSTR )IDI_TUTORIAL1 );
+    wcex.hIconSm = 0; 
     if( !RegisterClassEx( &wcex ) )
         return E_FAIL;
 
@@ -149,15 +146,12 @@ HRESULT InitWindow( HINSTANCE hInstance, int nCmdShow )
 							L"GLProgram",
 							WS_OVERLAPPEDWINDOW,
       0, 0, DEFAULTWINDOWH + DEFAULTTOOLSW, DEFAULTWINDOWH, NULL, NULL, hInstance, NULL );
-
 	czCreateMenu(g_hWnd);
     if( !g_hWnd )
         return E_FAIL;
-
     ShowWindow( g_hWnd, nCmdShow );
 	mStartMes = true;
 
-	
 
     return S_OK;
 }
@@ -210,7 +204,6 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam 
 			InitGeometry() ;
 			break;
 
-
         default:
             return DefWindowProc( hWnd, message, wParam, lParam );
     }
@@ -237,7 +230,6 @@ LRESULT CALLBACK WndProc2( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam
         default:
             return DefWindowProc( hWnd, message, wParam, lParam );
     }
-	
     return 0;
 }
 
@@ -248,10 +240,8 @@ HRESULT InitCompatibleContext()
 	int iMinorVersion=0;
 
 	HDC hDC = GetDC(g_hWnd);
-
-
-	
 	PIXELFORMATDESCRIPTOR pfd;
+
 	memset(&pfd, 0, sizeof(PIXELFORMATDESCRIPTOR));
 	pfd.nSize		= sizeof(PIXELFORMATDESCRIPTOR);
 	pfd.nVersion   = 1;
@@ -330,7 +320,6 @@ HRESULT InitContext()
 		// If everything went OK
 		if(hRC) wglMakeCurrent(hDC, hRC);
 		else bError = true;
-
 	}
 	else bError = true;
 	
@@ -343,10 +332,8 @@ HRESULT InitContext()
 		MessageBoxA(g_hWnd, sErrorMessage, sErrorTitle, MB_ICONINFORMATION);
 		return false;
 	}
-
    return S_OK;
 }
-
 BITMAPFILEHEADER1 header ;
 BITMAPINFOHEADER2 bmiHeader;
 
@@ -360,8 +347,7 @@ BITMAPINFOHEADER2 bmiHeader;
 	 mOrbitY+=y;
 
 }
-
- UINT uiVBO[4]; 
+UINT uiVBO[4]; 
 UINT uiVAO[1]; 
 
  void LoadImageDefault (){
@@ -402,11 +388,9 @@ void GenerateHMap()
 
 	IndicesCount= (u-1)*(v-1)*6;
     hmap = new float*[u];
- 
 	lpPixels = new COLORREF [u*v];
     GetDIBits( hdcSrc , hBitmap , 0 , v , lpPixels , &bmpInfo , DIB_RGB_COLORS );
  
-
 	for (int count = 0; count < u; count++)
         hmap[count] = new float [v];
 
@@ -415,12 +399,8 @@ void GenerateHMap()
 			int pos = lpPixels[ (i*v) + j];
 			hmap[i][j] = ((float)(( GetBValue(pos) + GetGValue(pos) + GetRValue(pos) ) / 3.0f) / 255.0f)/5;
         }
-
     }
-
 }
-
-
 
 void GenerateLandscape()
 {
@@ -441,7 +421,6 @@ void GenerateLandscape()
 			~VertexSruct()
 			{
 			}
-
 	};
 
 	GenerateHMap();
@@ -459,7 +438,6 @@ void GenerateLandscape()
 		vertices->tex[j*u+i]=glm::vec2(x + 0.5f, 1.0f - ((z * (FLOAT)u / (FLOAT)v) + 0.5f));
 
 	}
-
 	for (int i=0; i<(u-1); i++)
 		for (int j=0; j<(v-1); j++)
 		{
@@ -479,14 +457,10 @@ void GenerateLandscape()
 
    glDeleteBuffers(4, uiVBO);
    glDeleteVertexArrays(2, uiVAO);
-
    glGenVertexArrays(2, uiVAO); 
    glGenBuffers(4, uiVBO);		
 
-
- 
    glBindVertexArray(uiVAO[0]); 
-
    glBindBufferARB(GL_ARRAY_BUFFER, uiVBO[0]); 
    glBufferDataARB(GL_ARRAY_BUFFER, 3*verticesCount*sizeof(float), vertices->pos, GL_STATIC_DRAW); 
    glEnableVertexAttribArrayARB(0); 
@@ -502,7 +476,6 @@ void GenerateLandscape()
    glEnableVertexAttribArrayARB(2); 
    glVertexAttribPointerARB(2, 2, GL_FLOAT, GL_FALSE, 0, 0); 
 
-
    glBindBufferARB(GL_ELEMENT_ARRAY_BUFFER, uiVBO[3]); 
    glBufferDataARB(GL_ELEMENT_ARRAY_BUFFER, indicesCount*sizeof(unsigned int), indices, GL_STATIC_DRAW); 
 }
@@ -515,7 +488,6 @@ void InitGeometry()
 { 
    GenerateLandscape();
 
-   
    Tex.loadTexture2D("texdiag.jpg", true);
    Tex.setFiltering(TEXTURE_FILTER_MAG_BILINEAR, TEXTURE_FILTER_MIN_BILINEAR_MIPMAP);
 
@@ -525,7 +497,6 @@ void InitGeometry()
    spMain.createProgram(); 
    spMain.addShaderToProgram(&shVertex); 
    spMain.addShaderToProgram(&shFragment); 
-
    spMain.linkProgram(); 
    spMain.useProgram(); 
 
@@ -563,21 +534,20 @@ void Render()
 	glUniformMatrix4fv(iView,1,GL_FALSE,glm::value_ptr(mView));
 	glUniformMatrix4fv(iProjection,1,GL_FALSE,glm::value_ptr(mProjection));
 
-
 	glm::vec3 LightPos[1];
 	glm::vec3 LightColor[1];
 	LightPos[0]=glm::vec3(-1.0f,1.0f,1.0f);
 	LightColor[0]=glm::vec3(0,1,1);
-
 	int iLightPos=	glGetUniformLocation(spMain.getProgramID(),"vLightPos");
 	int iLightColor=glGetUniformLocation(spMain.getProgramID(),"vLightColor");
+
 	glUniform3fv(iLightPos,1,  (GLfloat*)LightPos);
 	glUniform3fv(iLightColor,1,(GLfloat*)LightColor);
 
 	glBindVertexArray(uiVAO[0]);
 	glUniformMatrix4fv(iWorld,1,GL_FALSE,glm::value_ptr(mWorld));
-	glDrawElements(GL_TRIANGLES,IndicesCount,GL_UNSIGNED_INT,0);
 
+	glDrawElements(GL_TRIANGLES,IndicesCount,GL_UNSIGNED_INT,0);
 	SwapBuffers(hDC);
 	DeleteObject(hDC);
 }
