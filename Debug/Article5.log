@@ -1,0 +1,33 @@
+﻿Build started 15.12.2014 15:07:46.
+     1>Project "C:\Users\y.dopa\Documents\Visual Studio 2012\Projects\GLProject\Article5.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt GLmain.cpp OpenFileDialog.cpp shaders.cpp texture.cpp
+         texture.cpp
+         shaders.cpp
+     1>shaders.cpp(17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(218) : see declaration of 'fopen'
+     1>shaders.cpp(29): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\string.h(110) : see declaration of 'strcpy'
+         OpenFileDialog.cpp
+         GLmain.cpp
+     1>GLmain.cpp(341): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+     1>GLmain.cpp(342): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(357) : see declaration of 'sprintf'
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\y.dopa\Documents\Visual Studio 2012\Projects\GLProject\Debug\MyOpenGLProject.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\y.dopa\Documents\Visual Studio 2012\Projects\GLProject\Debug\MyOpenGLProject.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\y.dopa\Documents\Visual Studio 2012\Projects\GLProject\Debug\MyOpenGLProject.lib" /MACHINE:X86 Debug\GLmain.obj
+         Debug\OpenFileDialog.obj
+         Debug\shaders.obj
+         Debug\texture.obj
+         D:\Libs\freeimage_dll_v392\FreeImage.lib
+         D:\Libs\glew\lib\glew32.lib
+         D:\Libs\glew\lib\glew32mx.lib
+         D:\Libs\glew\lib\glew32mxs.lib
+         D:\Libs\glew\lib\glew32s.lib
+         Article5.vcxproj -> C:\Users\y.dopa\Documents\Visual Studio 2012\Projects\GLProject\Debug\MyOpenGLProject.exe
+     1>Done Building Project "C:\Users\y.dopa\Documents\Visual Studio 2012\Projects\GLProject\Article5.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.84

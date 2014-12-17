@@ -60,7 +60,8 @@
       <TargetMachine>MachineX86</TargetMachine>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;glew32mx.lib;glew32mxs.lib;glew32s.lib;FreeImage.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir)\..\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -86,7 +87,6 @@
     <ClCompile Include="texture.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="D:\Libs\freeimage_dll_v392\FreeImage.h" />
     <ClInclude Include="GlobalDefines.h" />
     <ClInclude Include="image.h" />
     <ClInclude Include="OpenFileDialog.h" />
@@ -96,16 +96,8 @@
     <ClInclude Include="texture.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="D:\Libs\freeimage_dll_v392\FreeImage.dll" />
     <None Include="data\shaders\shader.frag" />
     <None Include="data\shaders\shader.vert" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="D:\Libs\freeimage_dll_v392\FreeImage.lib" />
-    <Library Include="D:\Libs\glew\lib\glew32.lib" />
-    <Library Include="D:\Libs\glew\lib\glew32mx.lib" />
-    <Library Include="D:\Libs\glew\lib\glew32mxs.lib" />
-    <Library Include="D:\Libs\glew\lib\glew32s.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

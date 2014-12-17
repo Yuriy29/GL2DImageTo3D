@@ -1,4 +1,11 @@
-﻿#pragma comment (lib,"opengl32.lib")
+﻿#pragma once
+#pragma comment (lib,"opengl32.lib")
+#pragma comment (lib,"glew32.lib")
+#pragma comment (lib,"glew32mx.lib")
+#pragma comment (lib,"glew32mxs.lib")
+#pragma comment (lib,"glew32s.lib")
+#pragma comment (lib,"FreeImage.lib")
+
 #include "GL/glew.h"
 #include "GL/wglew.h"
 #include <stdio.h>
@@ -8,7 +15,7 @@
 #include "glm/gtc/type_ptr.hpp"
 #include "stdafx.h"
 #include "shaders.h"
-#include "FreeImage.h"
+#include "FreeImage/FreeImage.h"
 #include "image.h"
 #include "OpenFileDialog.h"
 #include "Resource.h"

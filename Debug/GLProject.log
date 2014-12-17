@@ -1,0 +1,28 @@
+﻿Build started 17.12.2014 14:55:26.
+     1>Project "C:\Users\y.dopa\Documents\Visual Studio 2012\Projects\GLProject\GLProject.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt GLmain.cpp
+         GLmain.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\y.dopa\Documents\Visual Studio 2012\Projects\GLProject\Debug\MyOpenGLProject.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\y.dopa\Documents\Visual Studio 2012\Projects\GLProject\Debug\\..\libs" glew32.lib glew32mx.lib glew32mxs.lib glew32s.lib FreeImage.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\y.dopa\Documents\Visual Studio 2012\Projects\GLProject\Debug\MyOpenGLProject.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\y.dopa\Documents\Visual Studio 2012\Projects\GLProject\Debug\MyOpenGLProject.lib" /MACHINE:X86 Debug\GLmain.obj
+         Debug\OpenFileDialog.obj
+         Debug\shaders.obj
+         Debug\texture.obj
+     1>GLmain.obj : error LNK2019: unresolved external symbol __imp__glClear@4 referenced in function "void __cdecl Render(void)" (?Render@@YAXXZ)
+     1>GLmain.obj : error LNK2019: unresolved external symbol __imp__glClearColor@16 referenced in function "void __cdecl Render(void)" (?Render@@YAXXZ)
+     1>GLmain.obj : error LNK2019: unresolved external symbol __imp__glClearDepth@8 referenced in function "void __cdecl InitGeometry(void)" (?InitGeometry@@YAXXZ)
+     1>GLmain.obj : error LNK2019: unresolved external symbol __imp__glDrawElements@16 referenced in function "void __cdecl Render(void)" (?Render@@YAXXZ)
+     1>GLmain.obj : error LNK2019: unresolved external symbol __imp__glEnable@4 referenced in function "void __cdecl InitGeometry(void)" (?InitGeometry@@YAXXZ)
+     1>GLmain.obj : error LNK2019: unresolved external symbol __imp__wglCreateContext@4 referenced in function "long __cdecl InitCompatibleContext(void)" (?InitCompatibleContext@@YAJXZ)
+     1>GLmain.obj : error LNK2019: unresolved external symbol __imp__wglDeleteContext@4 referenced in function "long __cdecl InitCompatibleContext(void)" (?InitCompatibleContext@@YAJXZ)
+     1>GLmain.obj : error LNK2019: unresolved external symbol __imp__wglMakeCurrent@8 referenced in function "long __cdecl InitCompatibleContext(void)" (?InitCompatibleContext@@YAJXZ)
+     1>texture.obj : error LNK2019: unresolved external symbol __imp__glBindTexture@8 referenced in function "public: bool __thiscall CTexture::loadTexture2D(char *,bool)" (?loadTexture2D@CTexture@@QAE_NPAD_N@Z)
+     1>texture.obj : error LNK2019: unresolved external symbol __imp__glDeleteTextures@8 referenced in function "public: void __thiscall CTexture::releaseTexture(void)" (?releaseTexture@CTexture@@QAEXXZ)
+     1>texture.obj : error LNK2019: unresolved external symbol __imp__glGenTextures@8 referenced in function "public: bool __thiscall CTexture::loadTexture2D(char *,bool)" (?loadTexture2D@CTexture@@QAE_NPAD_N@Z)
+     1>texture.obj : error LNK2019: unresolved external symbol __imp__glTexImage2D@36 referenced in function "public: bool __thiscall CTexture::loadTexture2D(char *,bool)" (?loadTexture2D@CTexture@@QAE_NPAD_N@Z)
+     1>C:\Users\y.dopa\Documents\Visual Studio 2012\Projects\GLProject\Debug\MyOpenGLProject.exe : fatal error LNK1120: 12 unresolved externals
+     1>Done Building Project "C:\Users\y.dopa\Documents\Visual Studio 2012\Projects\GLProject\GLProject.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:05.65

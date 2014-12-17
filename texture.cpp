@@ -2,7 +2,7 @@
 #include "GL/glew.h"
 #include "GL/wglew.h"
 #include <stdio.h>
-#include "FreeImage.h"
+#include "FreeImage/FreeImage.h"
 
 #pragma comment(lib, "FreeImage.lib")
 
